@@ -14,10 +14,15 @@ protocol UserDetailsViewModelProtocol {
     var gender: String { get }
     var address: String { get }
     var phone: String { get }
+    var isBookmarked: Bool { get }
+    var onUserBookmarkStateChange: ((Bool) -> Void)? { get set }
+    func bookmarkButtonPressed()
 }
 class UserDetailsViewModel: UserDetailsViewModelProtocol {
     private let user: UserViewModel
-
+    private let storage: Storeable
+    var onUserBookmarkStateChange: ((Bool) -> Void)?
+    
     var userImageUrl: URL? {
         user.pic
     }
@@ -42,7 +47,22 @@ class UserDetailsViewModel: UserDetailsViewModelProtocol {
         user.phone
     }
 
-    init(user: UserViewModel) {
+    var isBookmarked: Bool {
+        user.isBookMarked
+    }
+
+    init(user: UserViewModel, storage: Storeable = Storage.shared) {
         self.user = user
+        self.storage = storage
+    }
+    
+    func bookmarkButtonPressed() {
+        if isBookmarked {
+            storage.delete(user)
+        } else {
+            storage.save(user)
+        }
+        user.isBookMarked = !isBookmarked
+        onUserBookmarkStateChange?(isBookmarked)
     }
 }

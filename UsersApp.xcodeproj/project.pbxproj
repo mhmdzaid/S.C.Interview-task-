@@ -31,6 +31,9 @@
 		FD134B9A2AA2055F00BC4D5A /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B992AA2055F00BC4D5A /* UserDetailsViewController.swift */; };
 		FD134B9C2AA206DD00BC4D5A /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B9B2AA206DD00BC4D5A /* UserDetailsViewModel.swift */; };
 		FD134B9E2AA20E2900BC4D5A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B9D2AA20E2900BC4D5A /* UIViewController+Extension.swift */; };
+		FD134BA02AA22BFF00BC4D5A /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B9F2AA22BFF00BC4D5A /* BookmarksViewController.swift */; };
+		FD134BA22AA2330800BC4D5A /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134BA12AA2330800BC4D5A /* BookmarksViewModel.swift */; };
+		FD134BA52AA238F200BC4D5A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134BA42AA238F200BC4D5A /* Storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		FD134B992AA2055F00BC4D5A /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		FD134B9B2AA206DD00BC4D5A /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
 		FD134B9D2AA20E2900BC4D5A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		FD134B9F2AA22BFF00BC4D5A /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		FD134BA12AA2330800BC4D5A /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
+		FD134BA42AA238F200BC4D5A /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 		FD134B4C2AA118B400BC4D5A /* UsersApp */ = {
 			isa = PBXGroup;
 			children = (
+				FD134BA32AA238E300BC4D5A /* Storage */,
 				FD134B942AA1F9CE00BC4D5A /* Extension */,
 				FD134B842AA11F6900BC4D5A /* Network */,
 				FD134B802AA11F2800BC4D5A /* Features */,
@@ -225,6 +232,8 @@
 		FD134B832AA11F5600BC4D5A /* Bookmarks */ = {
 			isa = PBXGroup;
 			children = (
+				FD134B9F2AA22BFF00BC4D5A /* BookmarksViewController.swift */,
+				FD134BA12AA2330800BC4D5A /* BookmarksViewModel.swift */,
 			);
 			path = Bookmarks;
 			sourceTree = "<group>";
@@ -265,6 +274,14 @@
 				FD134B8C2AA12E5B00BC4D5A /* UserViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD134BA32AA238E300BC4D5A /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				FD134BA42AA238F200BC4D5A /* Storage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,12 +523,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD134BA02AA22BFF00BC4D5A /* BookmarksViewController.swift in Sources */,
 				FD134B862AA11FB500BC4D5A /* UsersService.swift in Sources */,
 				FD134B932AA1F9A500BC4D5A /* UsersViewController+TableView.swift in Sources */,
 				FD134B8F2AA13E6B00BC4D5A /* UserTableViewCell.swift in Sources */,
 				FD134B9E2AA20E2900BC4D5A /* UIViewController+Extension.swift in Sources */,
+				FD134BA52AA238F200BC4D5A /* Storage.swift in Sources */,
 				FD134B8D2AA12E5B00BC4D5A /* UserViewModel.swift in Sources */,
 				FD134B9C2AA206DD00BC4D5A /* UserDetailsViewModel.swift in Sources */,
+				FD134BA22AA2330800BC4D5A /* BookmarksViewModel.swift in Sources */,
 				FD134B8B2AA12C7600BC4D5A /* UsersViewModel.swift in Sources */,
 				FD134B912AA13EDF00BC4D5A /* Mapper.swift in Sources */,
 				FD134B582AA118B400BC4D5A /* UsersApp.xcdatamodeld in Sources */,

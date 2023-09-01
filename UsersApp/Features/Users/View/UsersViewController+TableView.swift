@@ -12,7 +12,6 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         return viewModel?.state == .firstTimeLoading ?
         viewModel?.numberOfUsersAtShimmeringState ?? 0 :
         viewModel?.numberOfUsers ?? 0
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -23,6 +22,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let user = viewModel?.getUser(with: indexPath.row)
             cell.stopShimmer()
+            cell.delegate = viewModel
             cell.populateWith(user)
         }
         return cell

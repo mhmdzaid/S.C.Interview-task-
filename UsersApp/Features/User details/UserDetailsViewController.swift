@@ -19,19 +19,33 @@ class UserDetailsViewController: UIViewController {
     
     lazy var bookMarkButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "bookmark"), for: .normal)
         button.addTarget(self, action: #selector(bookMarkPressed), for: .touchUpInside)
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUsersInfo()
         addBookMarkButton()
+        handleUIChanges()
     }
 
+    func handleUIChanges() {
+        viewModel?.onUserBookmarkStateChange = { [weak self] isBookmarked in
+            guard let self else { return }
+            self.setBookmarkButtonImage(isBookmarked)
+        }
+    }
+    
+    func setBookmarkButtonImage(_ isBookmarked: Bool) {
+        let bookmarkImage = UIImage(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
+        self.bookMarkButton.setImage(bookmarkImage, for: .normal)
+    }
+    
     @objc func bookMarkPressed() {
-        print("hello world ")
+        viewModel?.bookmarkButtonPressed()
     }
 
     fileprivate func setUsersInfo() {
@@ -42,6 +56,7 @@ class UserDetailsViewController: UIViewController {
         genderLabel.text = viewModel?.gender ?? ""
         addressLabel.text = viewModel?.address ?? ""
         phoneLabel.text = viewModel?.phone ?? ""
+        setBookmarkButtonImage(viewModel?.isBookmarked ?? false)
     }
 
     fileprivate func addBookMarkButton() {

@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-protocol UsersViewModelProtocol {
+protocol UsersViewModelProtocol: UserTableViewCellDelegate {
     var numberOfUsers: Int { get }
     var state: ContentState { get set }
     var numberOfUsersAtShimmeringState: Int { get set }
@@ -19,6 +19,7 @@ protocol UsersViewModelProtocol {
 }
 class UsersViewModel: UsersViewModelProtocol {
     private let service: Service
+    private let localStorage: Storeable
     private var page = 1
     private var users: [UserViewModel] = []
     private var usersHolder: [UserViewModel] = []
@@ -32,8 +33,10 @@ class UsersViewModel: UsersViewModelProtocol {
         return users.count
     }
     
-    init(service: Service = UsersService()) {
+    init(service: Service = UsersService(),
+         storage: Storeable = Storage.shared) {
         self.service = service
+        localStorage = storage
     }
     
     var onStateUpdate: ((_ state: ContentState) -> ())?
@@ -44,8 +47,9 @@ class UsersViewModel: UsersViewModelProtocol {
             guard let self else { return }
             switch result {
             case .success(let users):
-                self.users.append(contentsOf: users)
-                self.usersHolder.append(contentsOf: users)
+                let mappedUsers = mapBookmarkedUsers(_users: users)
+                self.users.append(contentsOf: mappedUsers)
+                self.usersHolder.append(contentsOf: mappedUsers)
                 state = .populated
                 page += 1
                 
@@ -74,6 +78,28 @@ class UsersViewModel: UsersViewModelProtocol {
         usersHolder = []
         page = 1
         getUsers()
+    }
+    
+    func mapBookmarkedUsers(_users: [UserViewModel]) -> [UserViewModel] {
+        let bookMarkedUsers = localStorage.fetchUsers()
+        _users.forEach { user in
+            user.isBookMarked = bookMarkedUsers.contains(where: { return $0.id == user.id })
+        }
+        return _users
+    }
+}
+
+// MARK: - UserTableViewCellDelegate
+
+extension UsersViewModel {
+    func didBookmark(_ user: UserViewModel?, _ cell: UserTableViewCell) {
+        guard let user else { return }
+        if user.isBookMarked {
+            localStorage.delete(user)
+        } else {
+            localStorage.save(user)
+        }
+        user.isBookMarked = !user.isBookMarked
     }
 }
 

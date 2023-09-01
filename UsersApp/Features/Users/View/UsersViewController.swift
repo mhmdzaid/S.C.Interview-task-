@@ -23,6 +23,11 @@ class UsersViewController: UIViewController {
         viewModel?.getUsers()        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let indecies = tableView.indexPathsForVisibleRows ?? []
+        tableView.reloadRows(at: indecies, with: .fade)
+    }
+    
     fileprivate func setUpRefreshControl() {
         refreshControl.attributedTitle = NSAttributedString(string: "Loading ...")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)

@@ -19,21 +19,19 @@ struct User: Codable {
     let email: String
     let dob, registered: Dob
     let phone, cell: String
-    let id: ID
+    let login: Login
     let picture: Picture
     let nat: String
+}
+//MARK: - Login
+struct Login: Codable {
+    let uuid: String
 }
 
 // MARK: - Dob
 struct Dob: Codable {
     let date: String
     let age: Int
-}
-
-// MARK: - ID
-struct ID: Codable {
-    let name: String
-    let value: String?
 }
 
 // MARK: - Location
