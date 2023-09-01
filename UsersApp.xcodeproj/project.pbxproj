@@ -26,6 +26,8 @@
 		FD134B8D2AA12E5B00BC4D5A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B8C2AA12E5B00BC4D5A /* UserViewModel.swift */; };
 		FD134B8F2AA13E6B00BC4D5A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B8E2AA13E6B00BC4D5A /* UserTableViewCell.swift */; };
 		FD134B912AA13EDF00BC4D5A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B902AA13EDF00BC4D5A /* Mapper.swift */; };
+		FD134B932AA1F9A500BC4D5A /* UsersViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B922AA1F9A500BC4D5A /* UsersViewController+TableView.swift */; };
+		FD134B962AA1F9E800BC4D5A /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B952AA1F9E800BC4D5A /* UITableView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		FD134B8C2AA12E5B00BC4D5A /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		FD134B8E2AA13E6B00BC4D5A /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		FD134B902AA13EDF00BC4D5A /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		FD134B922AA1F9A500BC4D5A /* UsersViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersViewController+TableView.swift"; sourceTree = "<group>"; };
+		FD134B952AA1F9E800BC4D5A /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 		FD134B4C2AA118B400BC4D5A /* UsersApp */ = {
 			isa = PBXGroup;
 			children = (
+				FD134B942AA1F9CE00BC4D5A /* Extension */,
 				FD134B842AA11F6900BC4D5A /* Network */,
 				FD134B802AA11F2800BC4D5A /* Features */,
 				FD134B4D2AA118B400BC4D5A /* AppDelegate.swift */,
@@ -197,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				FD134B512AA118B400BC4D5A /* UsersViewController.swift */,
+				FD134B922AA1F9A500BC4D5A /* UsersViewController+TableView.swift */,
 				FD134B8E2AA13E6B00BC4D5A /* UserTableViewCell.swift */,
 				FD134B8A2AA12C7600BC4D5A /* UsersViewModel.swift */,
 				FD134B8C2AA12E5B00BC4D5A /* UserViewModel.swift */,
@@ -226,6 +232,14 @@
 				FD134B882AA1267900BC4D5A /* UsersResponse.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		FD134B942AA1F9CE00BC4D5A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FD134B952AA1F9E800BC4D5A /* UITableView+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD134B862AA11FB500BC4D5A /* UsersService.swift in Sources */,
+				FD134B932AA1F9A500BC4D5A /* UsersViewController+TableView.swift in Sources */,
 				FD134B8F2AA13E6B00BC4D5A /* UserTableViewCell.swift in Sources */,
 				FD134B8D2AA12E5B00BC4D5A /* UserViewModel.swift in Sources */,
 				FD134B8B2AA12C7600BC4D5A /* UsersViewModel.swift in Sources */,
@@ -477,6 +492,7 @@
 				FD134B4E2AA118B400BC4D5A /* AppDelegate.swift in Sources */,
 				FD134B502AA118B400BC4D5A /* SceneDelegate.swift in Sources */,
 				FD134B892AA1267900BC4D5A /* UsersResponse.swift in Sources */,
+				FD134B962AA1F9E800BC4D5A /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@ protocol UsersViewModelProtocol {
     func getUsers()
     func getUser(with index: Int) -> UserViewModel
     func searchUsers(with keyword: String)
+    func refreshList()
 }
 public class UsersViewModel: UsersViewModelProtocol {
     private let service: Service
@@ -66,6 +67,13 @@ public class UsersViewModel: UsersViewModelProtocol {
         }
         users = usersHolder.filter({$0.name.contains(keyword)})
         state = users.isEmpty ? .empty : .searching
+    }
+    
+    func refreshList() {
+        users = []
+        usersHolder = []
+        page = 1
+        getUsers()
     }
 }
 
