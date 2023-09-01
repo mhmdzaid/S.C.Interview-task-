@@ -16,6 +16,7 @@ protocol UsersViewModelProtocol: UserTableViewCellDelegate {
     func getUser(with index: Int) -> UserViewModel
     func searchUsers(with keyword: String)
     func refreshList()
+    func resetRemovedUsers()
 }
 class UsersViewModel: UsersViewModelProtocol {
     private let service: Service
@@ -86,6 +87,10 @@ class UsersViewModel: UsersViewModelProtocol {
             user.isBookMarked = bookMarkedUsers.contains(where: { return $0.id == user.id })
         }
         return _users
+    }
+    
+    func resetRemovedUsers() {
+        users = mapBookmarkedUsers(_users: users)
     }
 }
 

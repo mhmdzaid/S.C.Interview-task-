@@ -42,5 +42,6 @@ class UserViewModel {
         gender = user.gender ?? ""
         phone = user.phone ?? ""
         pic = URL(string: picUrlString ?? "")
+        isBookMarked = true
     }
 }

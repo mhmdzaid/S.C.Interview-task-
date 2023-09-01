@@ -382,6 +382,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="bookmarkButton" destination="H08-y3-Z2W" id="zSU-jg-E0E"/>
                                             <outlet property="emailLabel" destination="KE3-ON-bak" id="G86-bK-Rl5"/>
                                             <outlet property="userImageView" destination="7bp-wx-kln" id="Ws2-oZ-xEG"/>
                                             <outlet property="userNameLabel" destination="weg-Ul-3Bs" id="X8P-oT-Gu3"/>
@@ -466,7 +467,7 @@
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="110" height="128"/>
-        <image name="not-found" width="512" height="512"/>
+        <image name="not-found" width="3000" height="2000"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

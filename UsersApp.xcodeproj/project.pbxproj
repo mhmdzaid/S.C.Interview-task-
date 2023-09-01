@@ -34,6 +34,8 @@
 		FD134BA02AA22BFF00BC4D5A /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B9F2AA22BFF00BC4D5A /* BookmarksViewController.swift */; };
 		FD134BA22AA2330800BC4D5A /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134BA12AA2330800BC4D5A /* BookmarksViewModel.swift */; };
 		FD134BA52AA238F200BC4D5A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134BA42AA238F200BC4D5A /* Storage.swift */; };
+		FD134BAD2AA2955D00BC4D5A /* BookmarksEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD134BAC2AA2955D00BC4D5A /* BookmarksEmptyView.xib */; };
+		FD134BAF2AA29F6E00BC4D5A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134BAE2AA29F6E00BC4D5A /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		FD134B9F2AA22BFF00BC4D5A /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		FD134BA12AA2330800BC4D5A /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
 		FD134BA42AA238F200BC4D5A /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		FD134BAC2AA2955D00BC4D5A /* BookmarksEmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarksEmptyView.xib; sourceTree = "<group>"; };
+		FD134BAE2AA29F6E00BC4D5A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +236,7 @@
 		FD134B832AA11F5600BC4D5A /* Bookmarks */ = {
 			isa = PBXGroup;
 			children = (
-				FD134B9F2AA22BFF00BC4D5A /* BookmarksViewController.swift */,
+				FD134BB02AA2B07B00BC4D5A /* View */,
 				FD134BA12AA2330800BC4D5A /* BookmarksViewModel.swift */,
 			);
 			path = Bookmarks;
@@ -253,6 +257,7 @@
 			children = (
 				FD134B952AA1F9E800BC4D5A /* UITableView+Extension.swift */,
 				FD134B9D2AA20E2900BC4D5A /* UIViewController+Extension.swift */,
+				FD134BAE2AA29F6E00BC4D5A /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -282,6 +287,15 @@
 				FD134BA42AA238F200BC4D5A /* Storage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		FD134BB02AA2B07B00BC4D5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD134B9F2AA22BFF00BC4D5A /* BookmarksViewController.swift */,
+				FD134BAC2AA2955D00BC4D5A /* BookmarksEmptyView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +409,7 @@
 			files = (
 				FD134B5D2AA118B700BC4D5A /* LaunchScreen.storyboard in Resources */,
 				FD134B5A2AA118B700BC4D5A /* Assets.xcassets in Resources */,
+				FD134BAD2AA2955D00BC4D5A /* BookmarksEmptyView.xib in Resources */,
 				FD134B552AA118B400BC4D5A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +550,7 @@
 				FD134B8B2AA12C7600BC4D5A /* UsersViewModel.swift in Sources */,
 				FD134B912AA13EDF00BC4D5A /* Mapper.swift in Sources */,
 				FD134B582AA118B400BC4D5A /* UsersApp.xcdatamodeld in Sources */,
+				FD134BAF2AA29F6E00BC4D5A /* UIView+Extension.swift in Sources */,
 				FD134B522AA118B400BC4D5A /* UsersViewController.swift in Sources */,
 				FD134B9A2AA2055F00BC4D5A /* UserDetailsViewController.swift in Sources */,
 				FD134B4E2AA118B400BC4D5A /* AppDelegate.swift in Sources */,

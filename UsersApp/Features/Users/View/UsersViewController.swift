@@ -20,10 +20,13 @@ class UsersViewController: UIViewController {
         setupTableView()
         setUpRefreshControl()
         handleStateUpdate()
-        viewModel?.getUsers()        
+        viewModel?.getUsers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if tabBarController?.selectedViewController is BookmarksViewController {
+            viewModel?.resetRemovedUsers()
+        }
         let indecies = tableView.indexPathsForVisibleRows ?? []
         tableView.reloadRows(at: indecies, with: .fade)
     }

@@ -9,14 +9,36 @@ import UIKit
 
 class BookmarksViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var viewModel: BookmarksViewModelProtocol?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel?.initialize()
+    var tableViewHeight: CGFloat = 100
+    var viewModel: BookmarksViewModelProtocol? = BookmarksViewModel()
+    
+    lazy var emptyView: UIView? = {
+        let empty = Bundle.main.loadNibNamed("BookmarksEmptyView",owner: nil)?.first as? UIView
+        empty?.embedIn(view: view)
+        return empty
+    }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.getBookmarkedUsers()
+        viewModel?.onUserRemoval = { [weak self] contentState in
+            guard let self else { return }
+            switch contentState {
+            case .empty:
+                self.emptyView?.isHidden = false
+            case .populated:
+                self.emptyView?.isHidden = true 
+                self.tableView.reloadData()
+                
+            default :
+                break
+            }
+            view.layoutIfNeeded()
+        }
     }
-    
-    
+
 }
+
 //MARK: BookmarksViewController + UITableView
 extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +52,7 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let user = viewModel?.getUser(with: indexPath.row)
-        cell.stopShimmer()
+        cell.delegate = viewModel
         cell.populateWith(user)
         return cell
     }
@@ -41,5 +63,9 @@ extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
         
         detailsVC.viewModel = UserDetailsViewModel(user: user)
         navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableViewHeight
     }
 }
