@@ -17,7 +17,7 @@ protocol UsersViewModelProtocol {
     func searchUsers(with keyword: String)
     func refreshList()
 }
-public class UsersViewModel: UsersViewModelProtocol {
+class UsersViewModel: UsersViewModelProtocol {
     private let service: Service
     private var page = 1
     private var users: [UserViewModel] = []

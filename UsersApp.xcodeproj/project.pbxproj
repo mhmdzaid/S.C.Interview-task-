@@ -21,13 +21,16 @@
 		FD134B722AA118B700BC4D5A /* UsersAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B712AA118B700BC4D5A /* UsersAppUITests.swift */; };
 		FD134B742AA118B700BC4D5A /* UsersAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B732AA118B700BC4D5A /* UsersAppUITestsLaunchTests.swift */; };
 		FD134B862AA11FB500BC4D5A /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B852AA11FB500BC4D5A /* UsersService.swift */; };
-		FD134B892AA1267900BC4D5A /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B882AA1267900BC4D5A /* UsersResponse.swift */; };
+		FD134B892AA1267900BC4D5A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B882AA1267900BC4D5A /* UserModel.swift */; };
 		FD134B8B2AA12C7600BC4D5A /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B8A2AA12C7600BC4D5A /* UsersViewModel.swift */; };
 		FD134B8D2AA12E5B00BC4D5A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B8C2AA12E5B00BC4D5A /* UserViewModel.swift */; };
 		FD134B8F2AA13E6B00BC4D5A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B8E2AA13E6B00BC4D5A /* UserTableViewCell.swift */; };
 		FD134B912AA13EDF00BC4D5A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B902AA13EDF00BC4D5A /* Mapper.swift */; };
 		FD134B932AA1F9A500BC4D5A /* UsersViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B922AA1F9A500BC4D5A /* UsersViewController+TableView.swift */; };
 		FD134B962AA1F9E800BC4D5A /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B952AA1F9E800BC4D5A /* UITableView+Extension.swift */; };
+		FD134B9A2AA2055F00BC4D5A /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B992AA2055F00BC4D5A /* UserDetailsViewController.swift */; };
+		FD134B9C2AA206DD00BC4D5A /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B9B2AA206DD00BC4D5A /* UserDetailsViewModel.swift */; };
+		FD134B9E2AA20E2900BC4D5A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134B9D2AA20E2900BC4D5A /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,13 +75,16 @@
 		FD134B712AA118B700BC4D5A /* UsersAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAppUITests.swift; sourceTree = "<group>"; };
 		FD134B732AA118B700BC4D5A /* UsersAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FD134B852AA11FB500BC4D5A /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
-		FD134B882AA1267900BC4D5A /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
+		FD134B882AA1267900BC4D5A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		FD134B8A2AA12C7600BC4D5A /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		FD134B8C2AA12E5B00BC4D5A /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		FD134B8E2AA13E6B00BC4D5A /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		FD134B902AA13EDF00BC4D5A /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		FD134B922AA1F9A500BC4D5A /* UsersViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersViewController+TableView.swift"; sourceTree = "<group>"; };
 		FD134B952AA1F9E800BC4D5A /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		FD134B992AA2055F00BC4D5A /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		FD134B9B2AA206DD00BC4D5A /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
+		FD134B9D2AA20E2900BC4D5A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,11 +207,8 @@
 		FD134B812AA11F3400BC4D5A /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				FD134B512AA118B400BC4D5A /* UsersViewController.swift */,
-				FD134B922AA1F9A500BC4D5A /* UsersViewController+TableView.swift */,
-				FD134B8E2AA13E6B00BC4D5A /* UserTableViewCell.swift */,
-				FD134B8A2AA12C7600BC4D5A /* UsersViewModel.swift */,
-				FD134B8C2AA12E5B00BC4D5A /* UserViewModel.swift */,
+				FD134B982AA2009F00BC4D5A /* ViewModel */,
+				FD134B972AA2008D00BC4D5A /* View */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -213,6 +216,8 @@
 		FD134B822AA11F3C00BC4D5A /* User details */ = {
 			isa = PBXGroup;
 			children = (
+				FD134B992AA2055F00BC4D5A /* UserDetailsViewController.swift */,
+				FD134B9B2AA206DD00BC4D5A /* UserDetailsViewModel.swift */,
 			);
 			path = "User details";
 			sourceTree = "<group>";
@@ -229,7 +234,7 @@
 			children = (
 				FD134B852AA11FB500BC4D5A /* UsersService.swift */,
 				FD134B902AA13EDF00BC4D5A /* Mapper.swift */,
-				FD134B882AA1267900BC4D5A /* UsersResponse.swift */,
+				FD134B882AA1267900BC4D5A /* UserModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -238,8 +243,28 @@
 			isa = PBXGroup;
 			children = (
 				FD134B952AA1F9E800BC4D5A /* UITableView+Extension.swift */,
+				FD134B9D2AA20E2900BC4D5A /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		FD134B972AA2008D00BC4D5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD134B512AA118B400BC4D5A /* UsersViewController.swift */,
+				FD134B922AA1F9A500BC4D5A /* UsersViewController+TableView.swift */,
+				FD134B8E2AA13E6B00BC4D5A /* UserTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD134B982AA2009F00BC4D5A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD134B8A2AA12C7600BC4D5A /* UsersViewModel.swift */,
+				FD134B8C2AA12E5B00BC4D5A /* UserViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,14 +509,17 @@
 				FD134B862AA11FB500BC4D5A /* UsersService.swift in Sources */,
 				FD134B932AA1F9A500BC4D5A /* UsersViewController+TableView.swift in Sources */,
 				FD134B8F2AA13E6B00BC4D5A /* UserTableViewCell.swift in Sources */,
+				FD134B9E2AA20E2900BC4D5A /* UIViewController+Extension.swift in Sources */,
 				FD134B8D2AA12E5B00BC4D5A /* UserViewModel.swift in Sources */,
+				FD134B9C2AA206DD00BC4D5A /* UserDetailsViewModel.swift in Sources */,
 				FD134B8B2AA12C7600BC4D5A /* UsersViewModel.swift in Sources */,
 				FD134B912AA13EDF00BC4D5A /* Mapper.swift in Sources */,
 				FD134B582AA118B400BC4D5A /* UsersApp.xcdatamodeld in Sources */,
 				FD134B522AA118B400BC4D5A /* UsersViewController.swift in Sources */,
+				FD134B9A2AA2055F00BC4D5A /* UserDetailsViewController.swift in Sources */,
 				FD134B4E2AA118B400BC4D5A /* AppDelegate.swift in Sources */,
 				FD134B502AA118B400BC4D5A /* SceneDelegate.swift in Sources */,
-				FD134B892AA1267900BC4D5A /* UsersResponse.swift in Sources */,
+				FD134B892AA1267900BC4D5A /* UserModel.swift in Sources */,
 				FD134B962AA1F9E800BC4D5A /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

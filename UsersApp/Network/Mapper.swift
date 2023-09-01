@@ -8,10 +8,10 @@
 import Foundation
 
 protocol Mapper {
-    func mapUsers(_ response: UsersResponse) -> [UserViewModel]
+    func mapUsers(_ model: UserModel) -> [UserViewModel]
 }
 public class UsersMapper: Mapper {
-    func mapUsers(_ response: UsersResponse) -> [UserViewModel] {
+    func mapUsers(_ response: UserModel) -> [UserViewModel] {
         return response.results.map({return UserViewModel(user: $0)})
     }
 }

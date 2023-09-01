@@ -1,5 +1,5 @@
 //
-//  UsersResponse.swift
+//  UserModel.swift
 //  UsersApp
 //
 //  Created by Mohamed Elmalhey on 31/08/2023.
@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - UsersResponse
-struct UsersResponse: Codable {
+struct UserModel: Codable {
     let results: [User]
 }
 // MARK: - Result

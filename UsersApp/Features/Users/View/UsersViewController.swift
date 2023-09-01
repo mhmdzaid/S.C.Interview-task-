@@ -7,20 +7,20 @@
 
 import UIKit
 import SkeletonView
-public class UsersViewController: UIViewController {
+class UsersViewController: UIViewController {
     @IBOutlet weak var notFoundView: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var viewModel: UsersViewModelProtocol? = UsersViewModel()
     var tableViewHeight: CGFloat = 100
     let refreshControl = UIRefreshControl()
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         setupTableView()
         setUpRefreshControl()
         handleStateUpdate()
-        viewModel?.getUsers()
+        viewModel?.getUsers()        
     }
     
     fileprivate func setUpRefreshControl() {

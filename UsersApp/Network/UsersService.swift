@@ -17,7 +17,7 @@ public class UsersService: Service {
     
     func getUsers(from page: Int, completionHandler: @escaping(Result<[UserViewModel], AFError>) -> ()) {
         AF.request("https://randomuser.me/api/?page=\(page)&results=25")
-            .responseDecodable(of: UsersResponse.self) { response in
+            .responseDecodable(of: UserModel.self) { response in
                 switch response.result {
                 case .success(let _response):
                     let users = self.mapper.mapUsers(_response)
