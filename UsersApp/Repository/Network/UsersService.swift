@@ -17,11 +17,11 @@ extension WebService {
 
 public class UsersService: RepositoryDataSource {
     var mapper: Mapper = UsersMapper()
-    
+    var caller: Session? = AF
     func getUsers(from page: Int) async throws -> [UserViewModel] {
         try await withUnsafeThrowingContinuation { continuation in
             
-            AF.request("https://randomuser.me/api/?page=\(page)&results=25&seed=abc")
+            caller?.request("https://randomuser.me/api/?page=\(page)&results=25&seed=abc")
                 .responseDecodable(of: UserModel.self) { response in
                     switch response.result {
                     case .success(let _response):

@@ -6,16 +6,10 @@
 //
 
 import Foundation
-protocol BookmarksViewModelProtocol: UserTableViewCellDelegate {
-    var numberOfUsers: Int { get }
-    var onUserRemoval: ((ContentState) -> Void)? { get set }
-    func getUser(with index: Int) -> UserViewModel
-    func getBookmarkedUsers()
-}
+
 class BookmarksViewModel: BookmarksViewModelProtocol {
     private var users: [UserViewModel] = []
     private var repo: RepositoryProtocol
-    var unbookmarkedUsers: [String] = []
 
     var onUserRemoval: ((ContentState) -> Void)?
 

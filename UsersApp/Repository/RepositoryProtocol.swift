@@ -12,6 +12,7 @@ enum ServiceType {
     case local
 }
 protocol RepositoryProtocol {
+    var dataSource: RepositoryDataSource? { get set }
     func getUsers(_ type: ServiceType) async -> [UserViewModel]
     func save(user: UserViewModel)
     func delete(user: UserViewModel)

@@ -7,17 +7,6 @@
 
 import Foundation
 
-protocol UserDetailsViewModelProtocol {
-    var userImageUrl: URL? { get }
-    var username: String { get }
-    var email: String { get }
-    var gender: String { get }
-    var address: String { get }
-    var phone: String { get }
-    var isBookmarked: Bool { get }
-    var onUserBookmarkStateChange: ((Bool) -> Void)? { get set }
-    func bookmarkButtonPressed()
-}
 class UserDetailsViewModel: UserDetailsViewModelProtocol {
     private let user: UserViewModel
     private let repo: RepositoryProtocol

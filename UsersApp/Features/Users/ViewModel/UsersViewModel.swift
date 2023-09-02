@@ -53,7 +53,7 @@ class UsersViewModel: UsersViewModelProtocol {
             state = .populated
             return
         }
-        users = usersHolder.filter({$0.name.contains(keyword)})
+        users = usersHolder.filter({$0.name.lowercased().contains(keyword.lowercased())})
         state = users.isEmpty ? .notFound : .searching
     }
     
