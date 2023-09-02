@@ -8,13 +8,7 @@
 import Foundation
 import CoreData
 
-protocol Storeable {
-    func fetchUsers() -> [UserViewModel]
-    func save(_ user: UserViewModel)
-    func delete(_ user: UserViewModel)
-}
-
-class Storage: Storeable {
+class Storage: RepositoryDataSource {
     let entity = "UserEntity"
     static let shared = Storage()
     var mapper: Mapper = UsersMapper()

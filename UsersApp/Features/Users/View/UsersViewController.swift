@@ -63,28 +63,33 @@ class UsersViewController: UIViewController {
     
     fileprivate func handleStateUpdate() {
         viewModel?.onStateUpdate = {[weak self] state in
-            guard let self else { return }
-            self.notFoundView?.isHidden = true
-            switch state {
-            case .loading:
-                self.tableView.reloadData()
-                self.tableView.tableFooterView = createFooterSpinnerView()
-                
-            case .populated, .searching:
-                self.tableView.reloadData()
-                self.tableView.tableFooterView = nil
-                self.refreshControl.endRefreshing()
-            case .error:
-                print("something went wrong ..!")
-                
-            case .empty:
-                self.notFoundView?.isHidden = false
-                self.tableView.reloadData()
-            default:
-                break
+
+                guard let self else { return }
+                self.notFoundView?.isHidden = true
+
+                switch state {
+                case .loading:
+                    self.tableView.reloadData()
+                    self.tableView.tableFooterView = self.createFooterSpinnerView()
+                    
+                case .populated, .searching:
+                    self.refreshControl.endRefreshing()
+                    self.tableView.reloadData()
+                    self.tableView.tableFooterView = nil
+                    
+                case .error:
+                    print("something went wrong ..!")
+                    
+                case .notFound:
+                    self.notFoundView?.isHidden = false
+                    self.tableView.reloadData()
+                    
+                default:
+                    self.tableView.reloadData()
+                }
             }
         }
-    }
+
 }
 // MARK: UsersViewController + UISearchBarDelegate
 extension UsersViewController: UISearchBarDelegate {

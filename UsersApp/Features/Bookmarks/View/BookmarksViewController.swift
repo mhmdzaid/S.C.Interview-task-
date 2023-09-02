@@ -22,10 +22,12 @@ class BookmarksViewController: UIViewController {
         super.viewWillAppear(animated)
         viewModel?.getBookmarkedUsers()
         viewModel?.onUserRemoval = { [weak self] contentState in
+            
             guard let self else { return }
             switch contentState {
             case .empty:
                 self.emptyView?.isHidden = false
+                
             case .populated:
                 self.emptyView?.isHidden = true 
                 self.tableView.reloadData()

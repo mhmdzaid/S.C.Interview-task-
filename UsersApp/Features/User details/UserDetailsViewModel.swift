@@ -20,7 +20,7 @@ protocol UserDetailsViewModelProtocol {
 }
 class UserDetailsViewModel: UserDetailsViewModelProtocol {
     private let user: UserViewModel
-    private let storage: Storeable
+    private let repo: RepositoryProtocol
     var onUserBookmarkStateChange: ((Bool) -> Void)?
     
     var userImageUrl: URL? {
@@ -51,16 +51,16 @@ class UserDetailsViewModel: UserDetailsViewModelProtocol {
         user.isBookMarked
     }
 
-    init(user: UserViewModel, storage: Storeable = Storage.shared) {
+    init(user: UserViewModel, repo: RepositoryProtocol = Repository()) {
         self.user = user
-        self.storage = storage
+        self.repo = repo
     }
     
     func bookmarkButtonPressed() {
         if isBookmarked {
-            storage.delete(user)
+            repo.delete(user: user)
         } else {
-            storage.save(user)
+            repo.save(user: user)
         }
         user.isBookMarked = !isBookmarked
         onUserBookmarkStateChange?(isBookmarked)

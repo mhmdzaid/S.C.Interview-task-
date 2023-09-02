@@ -26,7 +26,6 @@ class UserDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUsersInfo()
         addBookMarkButton()
         handleUIChanges()

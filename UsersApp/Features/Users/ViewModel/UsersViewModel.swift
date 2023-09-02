@@ -7,20 +7,9 @@
 
 import Foundation
 import Alamofire
-protocol UsersViewModelProtocol: UserTableViewCellDelegate {
-    var numberOfUsers: Int { get }
-    var state: ContentState { get set }
-    var numberOfUsersAtShimmeringState: Int { get set }
-    var onStateUpdate: ((_ state: ContentState) -> ())? { get set }
-    func getUsers()
-    func getUser(with index: Int) -> UserViewModel
-    func searchUsers(with keyword: String)
-    func refreshList()
-    func resetRemovedUsers()
-}
+
 class UsersViewModel: UsersViewModelProtocol {
-    private let service: Service
-    private let localStorage: Storeable
+    private var repo: RepositoryProtocol
     private var page = 1
     private var users: [UserViewModel] = []
     private var usersHolder: [UserViewModel] = []
@@ -34,28 +23,22 @@ class UsersViewModel: UsersViewModelProtocol {
         return users.count
     }
     
-    init(service: Service = UsersService(),
-         storage: Storeable = Storage.shared) {
-        self.service = service
-        localStorage = storage
+    init(repo: RepositoryProtocol = Repository()) {
+        self.repo = repo
     }
     
     var onStateUpdate: ((_ state: ContentState) -> ())?
-
+    
     func getUsers() {
         state = page == 1 ? .firstTimeLoading : .loading
-        service.getUsers(from: page) {[weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let users):
-                let mappedUsers = mapBookmarkedUsers(_users: users)
-                self.users.append(contentsOf: mappedUsers)
-                self.usersHolder.append(contentsOf: mappedUsers)
-                state = .populated
-                page += 1
-                
-            case .failure(_):
-                state = .error
+        Task {
+            let users = await repo.getUsers(.api(page))
+            let mappedUsers = await mapBookmarkedUsers(_users: users)
+            self.users.append(contentsOf: mappedUsers)
+            self.usersHolder.append(contentsOf: mappedUsers)
+            DispatchQueue.main.async {
+                self.state = .populated
+                self.page += 1
             }
         }
     }
@@ -71,18 +54,19 @@ class UsersViewModel: UsersViewModelProtocol {
             return
         }
         users = usersHolder.filter({$0.name.contains(keyword)})
-        state = users.isEmpty ? .empty : .searching
+        state = users.isEmpty ? .notFound : .searching
     }
     
     func refreshList() {
-        users = []
-        usersHolder = []
+        users.removeAll()
+        usersHolder.removeAll()
+        state = .empty
         page = 1
         getUsers()
     }
     
-    func mapBookmarkedUsers(_users: [UserViewModel]) -> [UserViewModel] {
-        let bookMarkedUsers = localStorage.fetchUsers()
+    func mapBookmarkedUsers(_users: [UserViewModel]) async -> [UserViewModel] {
+        let bookMarkedUsers = await repo.getUsers(.local)
         _users.forEach { user in
             user.isBookMarked = bookMarkedUsers.contains(where: { return $0.id == user.id })
         }
@@ -90,7 +74,9 @@ class UsersViewModel: UsersViewModelProtocol {
     }
     
     func resetRemovedUsers() {
-        users = mapBookmarkedUsers(_users: users)
+        Task {
+            users = await mapBookmarkedUsers(_users: users)
+        }
     }
 }
 
@@ -100,9 +86,9 @@ extension UsersViewModel {
     func didBookmark(_ user: UserViewModel?, _ cell: UserTableViewCell) {
         guard let user else { return }
         if user.isBookMarked {
-            localStorage.delete(user)
+            repo.delete(user: user)
         } else {
-            localStorage.save(user)
+            repo.save(user: user)
         }
         user.isBookMarked = !user.isBookMarked
     }
@@ -115,4 +101,5 @@ enum ContentState {
     case populated
     case error
     case searching
+    case notFound
 }
