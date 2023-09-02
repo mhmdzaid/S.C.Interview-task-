@@ -8,6 +8,7 @@
 import UIKit
 
 class UserDetailsViewController: UIViewController {
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -29,8 +30,9 @@ class UserDetailsViewController: UIViewController {
         setUsersInfo()
         addBookMarkButton()
         handleUIChanges()
+        setCardShadow()
     }
-
+    
     func handleUIChanges() {
         viewModel?.onUserBookmarkStateChange = { [weak self] isBookmarked in
             guard let self else { return }
@@ -46,20 +48,29 @@ class UserDetailsViewController: UIViewController {
     @objc func bookMarkPressed() {
         viewModel?.bookmarkButtonPressed()
     }
-
+    
     fileprivate func setUsersInfo() {
-        userImageView.sd_setImage(with: viewModel?.userImageUrl)
-        userImageView.layer.cornerRadius = imageViewCornerRadius
         usernameLabel.text = viewModel?.username ?? ""
         emailLabel.text = viewModel?.email ?? ""
         genderLabel.text = viewModel?.gender ?? ""
         addressLabel.text = viewModel?.address ?? ""
         phoneLabel.text = viewModel?.phone ?? ""
         setBookmarkButtonImage(viewModel?.isBookmarked ?? false)
+        userImageView.sd_setImage(with: viewModel?.userImageUrl) { [weak self] image,_, _, _  in
+            guard let self else { return }
+            self.userImageView.image = image?.rounded(radius: self.imageViewCornerRadius)
+        }
     }
-
+    
     fileprivate func addBookMarkButton() {
         let bookMarkItem = UIBarButtonItem(customView: bookMarkButton)
         navigationItem.setRightBarButton(bookMarkItem,animated: true)
+    }
+    
+    fileprivate func setCardShadow() {
+        cardView.layer.cornerRadius = 10
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        cardView.layer.shadowOpacity = 0.5
+        cardView.layer.shadowColor = UIColor.lightGray.cgColor
     }
 }

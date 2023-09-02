@@ -42,6 +42,7 @@
 		FD4752DB2AA3C50900125A74 /* UserDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4752DA2AA3C50900125A74 /* UserDetailsViewModelProtocol.swift */; };
 		FD4752DE2AA3C55300125A74 /* BookmarksViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4752DD2AA3C55300125A74 /* BookmarksViewModelProtocol.swift */; };
 		FD4752E22AA3C5F000125A74 /* BookmarksViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4752E12AA3C5F000125A74 /* BookmarksViewModelTests.swift */; };
+		FD4752E52AA3EC5100125A74 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4752E42AA3EC5100125A74 /* UIImage+Extension.swift */; };
 		FDD4B5962AA3BC02007ABE67 /* LocalStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD4B5952AA3BC02007ABE67 /* LocalStorageMock.swift */; };
 		FDD4B5982AA3BC27007ABE67 /* RepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD4B5972AA3BC27007ABE67 /* RepositoryMock.swift */; };
 		FDD4B59A2AA3BC7D007ABE67 /* WebServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD4B5992AA3BC7D007ABE67 /* WebServiceMock.swift */; };
@@ -104,6 +105,7 @@
 		FD4752DA2AA3C50900125A74 /* UserDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
 		FD4752DD2AA3C55300125A74 /* BookmarksViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModelProtocol.swift; sourceTree = "<group>"; };
 		FD4752E12AA3C5F000125A74 /* BookmarksViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModelTests.swift; sourceTree = "<group>"; };
+		FD4752E42AA3EC5100125A74 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		FDD4B5952AA3BC02007ABE67 /* LocalStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageMock.swift; sourceTree = "<group>"; };
 		FDD4B5972AA3BC27007ABE67 /* RepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMock.swift; sourceTree = "<group>"; };
 		FDD4B5992AA3BC7D007ABE67 /* WebServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceMock.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				FD134B952AA1F9E800BC4D5A /* UITableView+Extension.swift */,
 				FD134B9D2AA20E2900BC4D5A /* UIViewController+Extension.swift */,
 				FD134BAE2AA29F6E00BC4D5A /* UIView+Extension.swift */,
+				FD4752E42AA3EC5100125A74 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				FD134BB52AA34B5D00BC4D5A /* Repository.swift in Sources */,
 				FD134B9C2AA206DD00BC4D5A /* UserDetailsViewModel.swift in Sources */,
 				FD134BB72AA35F9400BC4D5A /* UserViewModelProtocol.swift in Sources */,
+				FD4752E52AA3EC5100125A74 /* UIImage+Extension.swift in Sources */,
 				FD134BA22AA2330800BC4D5A /* BookmarksViewModel.swift in Sources */,
 				FD134B8B2AA12C7600BC4D5A /* UsersViewModel.swift in Sources */,
 				FD134B912AA13EDF00BC4D5A /* Mapper.swift in Sources */,
