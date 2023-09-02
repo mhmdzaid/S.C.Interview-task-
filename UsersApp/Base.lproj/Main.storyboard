@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="976.33587786259534" y="3.5211267605633805"/>
         </scene>
-        <!--User Details View Controller-->
+        <!--Profile-->
         <scene sceneID="Zby-Fd-vc0">
             <objects>
-                <viewController storyboardIdentifier="UserDetailsViewController" id="8iS-nB-DSV" customClass="UserDetailsViewController" customModule="UsersApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserDetailsViewController" title="Profile" id="8iS-nB-DSV" customClass="UserDetailsViewController" customModule="UsersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ThM-AM-OXh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,11 +160,11 @@
                                     <constraint firstAttribute="height" constant="150" id="cMO-T3-fgg"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MdM-Tu-QzZ">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MdM-Tu-QzZ">
                                 <rect key="frame" x="33.666666666666657" y="245" width="326" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bg-aM-Irv">
-                                        <rect key="frame" x="0.0" y="0.0" width="326" height="0.0"/>
+                                        <rect key="frame" x="163" y="0.0" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
