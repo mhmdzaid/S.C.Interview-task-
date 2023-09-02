@@ -36,6 +36,7 @@
 		FD134BA52AA238F200BC4D5A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134BA42AA238F200BC4D5A /* Storage.swift */; };
 		FD134BAD2AA2955D00BC4D5A /* BookmarksEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD134BAC2AA2955D00BC4D5A /* BookmarksEmptyView.xib */; };
 		FD134BAF2AA29F6E00BC4D5A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD134BAE2AA29F6E00BC4D5A /* UIView+Extension.swift */; };
+		FD134BB22AA2B11500BC4D5A /* UserNotFoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD134BB12AA2B11500BC4D5A /* UserNotFoundView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		FD134BA42AA238F200BC4D5A /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		FD134BAC2AA2955D00BC4D5A /* BookmarksEmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarksEmptyView.xib; sourceTree = "<group>"; };
 		FD134BAE2AA29F6E00BC4D5A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FD134BB12AA2B11500BC4D5A /* UserNotFoundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserNotFoundView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 				FD134B512AA118B400BC4D5A /* UsersViewController.swift */,
 				FD134B922AA1F9A500BC4D5A /* UsersViewController+TableView.swift */,
 				FD134B8E2AA13E6B00BC4D5A /* UserTableViewCell.swift */,
+				FD134BB12AA2B11500BC4D5A /* UserNotFoundView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				FD134B5A2AA118B700BC4D5A /* Assets.xcassets in Resources */,
 				FD134BAD2AA2955D00BC4D5A /* BookmarksEmptyView.xib in Resources */,
 				FD134B552AA118B400BC4D5A /* Main.storyboard in Resources */,
+				FD134BB22AA2B11500BC4D5A /* UserNotFoundView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

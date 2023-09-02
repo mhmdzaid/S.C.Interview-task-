@@ -8,12 +8,19 @@
 import UIKit
 import SkeletonView
 class UsersViewController: UIViewController {
-    @IBOutlet weak var notFoundView: UIImageView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    let refreshControl = UIRefreshControl()
     var viewModel: UsersViewModelProtocol? = UsersViewModel()
     var tableViewHeight: CGFloat = 100
-    let refreshControl = UIRefreshControl()
+    
+    lazy var notFoundView: UIView? = {
+        let notFoundV = Bundle.main.loadNibNamed("UserNotFoundView",owner: nil)?.first as? UIView
+        notFoundV?.embedIn(view: contentView)
+        return notFoundV
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -57,7 +64,7 @@ class UsersViewController: UIViewController {
     fileprivate func handleStateUpdate() {
         viewModel?.onStateUpdate = {[weak self] state in
             guard let self else { return }
-            self.notFoundView.isHidden = true
+            self.notFoundView?.isHidden = true
             switch state {
             case .loading:
                 self.tableView.reloadData()
@@ -71,7 +78,7 @@ class UsersViewController: UIViewController {
                 print("something went wrong ..!")
                 
             case .empty:
-                self.notFoundView.isHidden = false
+                self.notFoundView?.isHidden = false
                 self.tableView.reloadData()
             default:
                 break
